@@ -15,6 +15,7 @@ NixOS 常见问题解答  (若有新问题请咨询TG群: https://t.me/nixos_zhc
 #### 1. 替换 nix-channel
 
 在没有改动默认设置的情况下，root默认拥有`nixos`这一channel，其url指向系统初次安装时使用的版本。
+
 假设初次安装时使用20.03，则执行以下命令：
 
 ```sh
@@ -52,7 +53,7 @@ sudo nix-channel --update
 ```
 这一步类似的作用是更新本机channel中的nix表达式，类似`sudo apt-get update`, 参考[Wiki](https://nixos.wiki/wiki/Cheatsheet)。
 
-3. Rebuild系统
+#### 3. Rebuild系统
 
 然后像往常一样, 重新 build 系统：
 
@@ -61,7 +62,7 @@ sudo nixos-rebuild boot
 
 ```
 
-#### 3. 重启系统
+#### 4. 重启系统
 
 保存好进行中的工作, 然后重启：
 
@@ -84,7 +85,7 @@ nixos-version
 ### 原理简介
 
 `nixos-rebuild`是一个shell脚本，在执行`nixos-rebuild boot`时，核心其实是执行了如下指令：
-```
+```sh
 system=$(nix-build '<nixpkgs/nixos>' --no-out-link -A system)
 $system/bin/switch-to-configuration boot
 ```
