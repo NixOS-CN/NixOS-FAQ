@@ -1,4 +1,4 @@
-# NixOS OFAQ
+# NixOS FAQ
 NixOS 常见问题解答  (若有新问题请咨询TG群: https://t.me/nixos_zhcn)
 
 
@@ -12,7 +12,7 @@ NixOS 常见问题解答  (若有新问题请咨询TG群: https://t.me/nixos_zhc
 
 以从 20.03 升级到 20.09 为例:
 
-1. 替换 nix-channel
+#### 1. 替换 nix-channel
 
 在没有改动默认设置的情况下，root默认拥有`nixos`这一channel，其url指向系统初次安装时使用的版本。
 假设初次安装时使用20.03，则执行以下命令：
@@ -45,7 +45,7 @@ sudo nix-channel --list
 nixos https://nixos.org/channels/nixos-20.09
 ```
 
-2. 更新channel
+#### 2. 更新channel
 
 ```sh
 sudo nix-channel --update
@@ -61,7 +61,7 @@ sudo nixos-rebuild boot
 
 ```
 
-3. 重启系统
+#### 3. 重启系统
 
 保存好进行中的工作, 然后重启：
 
@@ -92,4 +92,6 @@ $system/bin/switch-to-configuration boot
 ```
 nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels
 ```
-因此sudo执行`nixos-rebuild boot`时`<nixpkgs/nixos>`会被展开为`/nix/var/nix/profiles/per-user/root/channels/nixos/nixos`, 而这个路径正是root的名为`nixos`的channel存放nix表达式的位置，因此替换更新channel之后再执行`nixos-rebuild`就会从新版本的nix表达式中构建系统。同理用户可以修改`NIX_PATH`或者使用`-I`选项修改`nixpkgs`指向的路径，从而使用本地任意版本的nixpkgs repo构建系统。
+因此sudo执行`nixos-rebuild boot`时`<nixpkgs/nixos>`会被展开为`/nix/var/nix/profiles/per-user/root/channels/nixos/nixos`, 而这个路径正是root的名为`nixos`的channel存放nix表达式的位置，因此替换更新channel之后再执行`nixos-rebuild`就会从新版本的nix表达式中构建系统。
+
+同理用户可以修改`NIX_PATH`或者使用`-I`选项修改`nixpkgs`指向的路径，从而使用本地任意版本的nixpkgs repo构建系统。
