@@ -10,7 +10,7 @@ NixOS 常见问题解答  (若有新问题请咨询TG群: https://t.me/nixos_zhc
 
 首先查看
 
-```
+```sh
 sudo nix-channel --list
 ```
 
@@ -22,7 +22,7 @@ nixos https://nixos.org/channels/nixos-20.03
 
 这时候执行
 
-```
+```sh
 sudo nix-channel --remove nixos
 sudo nix-channel --add https://nixos.org/channels/nixos-20.03 nixos
 ```
@@ -32,7 +32,7 @@ sudo nix-channel --add https://nixos.org/channels/nixos-20.03 nixos
 
 完成后再check一下
 
-```
+```sh
 sudo nix-channel --list
 ```
 
@@ -46,13 +46,13 @@ nixos https://nixos.org/channels/nixos-20.09
 
 先更新一下包
 
-```
+```sh
 sudo nix-channel --update
 ```
 
 然后像往常一样, 重新 build 系统, 不过这次带上 --upgrade 参数
 
-```
+```sh
 sudo nixos-rebuild --upgrade boot
 ```
 
@@ -60,13 +60,13 @@ sudo nixos-rebuild --upgrade boot
 
 保存好进行中的工作, 然后重启
 
-```
+```sh
 reboot
 ```
 
 然后 check 一下版本号是否最新
 
-```
+```sh
 nixos-version
 ```
 
