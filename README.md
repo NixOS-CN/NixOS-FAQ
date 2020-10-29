@@ -27,6 +27,9 @@ sudo nix-channel --remove nixos
 sudo nix-channel --add https://nixos.org/channels/nixos-20.03 nixos
 ```
 
+(注意这里对 nixos 这个 channel 名称敏感, 最好保持这个名称, 不要换)
+
+
 完成后再check一下
 
 ```
@@ -54,3 +57,21 @@ sudo nixos-rebuild --upgrade boot
 ```
 
 3. 重启系统
+
+保存好进行中的工作, 然后重启
+
+```
+reboot
+```
+
+然后 check 一下版本号是否最新
+
+```
+nixos-version
+```
+
+现在应该能看到类似下面这样的输出:
+
+```
+20.09.1469.13d0c311e3a (Nightingale)
+```
