@@ -5,7 +5,7 @@ NixOS 常见问题解答
 <details><summary>1. 怎么升级 NixOS 大版本?</summary>
 <p>
   
-### 关于system.stateVersion
+### 关于 system.stateVersion
 
 修改这个选项**不会**升级系统，如果你没弄清楚这个选项是[做什么的](https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/misc/version.nix#L56), 请**不要**修改。
 
@@ -15,7 +15,7 @@ NixOS 常见问题解答
 
 #### 1. 替换 nix-channel
 
-在没有改动默认设置的情况下，root默认拥有`nixos`这一channel，其url指向系统初次安装时使用的版本。
+在没有改动默认设置的情况下，root 默认拥有 `nixos` 这一 channel ，其 url 指向系统初次安装时使用的版本。
 
 假设初次安装时使用20.03，则执行以下命令：
 
@@ -32,7 +32,7 @@ nixos https://nixos.org/channels/nixos-20.03
 
 ```sh
 sudo nix-channel --remove nixos
-# --add 默认会覆盖已存在的channel name，上述--remove可以省略。
+# --add 默认会覆盖已存在的channel name，上述 --remove 可以省略。
 sudo nix-channel --add https://nixos.org/channels/nixos-20.03 nixos
 ```
 
@@ -53,9 +53,9 @@ nixos https://nixos.org/channels/nixos-20.09
 ```sh
 sudo nix-channel --update
 ```
-这一步类似的作用是更新本机channel中的nix表达式，类似`sudo apt-get update`, 参考[Wiki](https://nixos.wiki/wiki/Cheatsheet)。
+这一步类似的作用是更新本机channel中的nix表达式，类似 `sudo apt-get update` , 参考 [Wiki](https://nixos.wiki/wiki/Cheatsheet)。
 
-更多说明：[channel所有者](#channel所有者)
+更多说明：[channel 所有者](#channel-所有者)
 
 #### 3. 重新构建 (Rebuild) 系统
 
@@ -64,9 +64,11 @@ sudo nix-channel --update
 ```
 sudo nixos-rebuild boot
 ```
-使用boot可以避免部分services在rebuild后重启失败的问题，但需要重启系统。注：rebuild不会使用kexec等技术自动切换内核。
+使用 boot 可以避免部分 services 在 rebuild 后重启失败的问题，但需要重启系统。注： rebuild 不会使用 kexec 等技术自动切换内核。
 
-如果仅更新nixos，可以跳过第2部的更新channel，执行`sudo nixos-rebuild boot --upgrade`，它会自动更新nixos channel并执行后续操作。更多说明：[nixos-rebuild --upgrade](#nixos-rebuild---upgrade)
+如果仅更新 nixos ，可以跳过第2部的更新 channel ，执行 `sudo nixos-rebuild boot --upgrade` ，它会自动更新 nixos channel 并执行后续操作。更多说明： [nixos-rebuild --upgrade](#nixos-rebuild---upgrade)
+
+更多说明：[rebuild 脚本](#rebuild-脚本)
 
 #### 4. 重启系统
 
@@ -90,13 +92,13 @@ nixos-version
 
 ### 原理简介
 
-#### channel所有者
+#### channel 所有者
 
-shell命令使用sudo描述代替root用户，表示需要使用root所有的配置文件或root权限。`nixos-rebuild switch`等需要root的写入权限。而nixos-rebuild读取的是root所拥有的channel。如果使用其它用户执行`nixos-rebuild build`，则就是以这个用户的channel配置为准。但需要注意到，其它用户隐式包含了root的channel。
+shell 命令使用 sudo 描述代替 root 用户，表示需要使用 root 所有的配置文件或 root 权限。`nixos-rebuild switch` 等需要 root 的写入权限。而 nixos-rebuild 读取的是 root 所拥有的 channel 。如果使用其它用户执行 `nixos-rebuild build`，则就是以这个用户的 channel 配置为准。但需要注意到，其它用户隐式包含了 root 的 channel 。
 
-#### rebuild脚本
+#### rebuild 脚本
 
-`nixos-rebuild`是一个shell脚本，在执行`nixos-rebuild boot`时，核心其实是执行了如下指令：
+`nixos-rebuild` 是一个 shell 脚本，在执行 `nixos-rebuild boot` 时，核心其实是执行了如下指令：
 ```sh
 system=$(nix-build '<nixpkgs/nixos>' --no-out-link -A system)
 $system/bin/switch-to-configuration boot
@@ -111,6 +113,6 @@ nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nix
 
 ##### nixos-rebuild --upgrade
 
-`nixos-rebuild --upgrade`实际上是先更新执行用户的nixos channel。然后检查root用户的channel，如果一级目录中包含`.update-on-nixos-rebuild`，则会更新这个channel。
+`nixos-rebuild --upgrade` 实际上是先更新执行用户的 nixos channel。然后检查 root 用户的 channel ，如果一级目录中包含 `.update-on-nixos-rebuild` ，则会更新这个 channel 。
 </p>
 </details>
