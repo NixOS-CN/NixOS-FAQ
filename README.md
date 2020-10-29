@@ -17,7 +17,7 @@ NixOS 常见问题解答  (若有新问题请咨询TG群: https://t.me/nixos_zhc
 在没有改动默认设置的情况下，root默认拥有`nixos`这一channel，其url指向系统初次安装时使用的版本。
 假设初次安装时使用20.03，则执行以下命令：
 
-```
+```sh
 sudo nix-channel --list
 ```
 应该会输出：
@@ -28,14 +28,14 @@ nixos https://nixos.org/channels/nixos-20.03
 
 这时候执行：
 
-```
+```sh
 sudo nix-channel --remove nixos
 sudo nix-channel --add https://nixos.org/channels/nixos-20.03 nixos
 ```
 
 完成后再check一下：
 
-```
+```sh
 sudo nix-channel --list
 ```
 
@@ -47,8 +47,7 @@ nixos https://nixos.org/channels/nixos-20.09
 
 2. 更新channel
 
-执行以下命令：
-```
+```sh
 sudo nix-channel --update
 ```
 这一步类似的作用是更新本机channel中的nix表达式，类似`sudo apt-get update`, 参考[Wiki](https://nixos.wiki/wiki/Cheatsheet)。
@@ -59,19 +58,20 @@ sudo nix-channel --update
 
 ```
 sudo nixos-rebuild boot
+
 ```
 
 3. 重启系统
 
 保存好进行中的工作, 然后重启：
 
-```
+```sh
 reboot
 ```
 
 然后 check 一下版本号是否最新：
 
-```
+```sh
 nixos-version
 ```
 
