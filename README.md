@@ -2,31 +2,6 @@
 NixOS 常见问题解答  
 如有新问题请加入 [Telegram Group](https://t.me/nixos_zhcn)
 
-<details><summary> 怎么回收磁盘存储空间? </summary>
-<p>
-
-先删除 gc root （+5 表示保留最近的 5 个版本）
-
-```sh
-sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +5
-```
-
-然后再执行 gc 操作
-
-```
-nix-collect-garbage
-```
-
-如果想进一步节省磁盘空间，可以考虑用如下命令将相同的文件硬链接到同一份，但这个步骤可能会花费比较长的时间
-
-```
-nix-store --optimise
-```
-
-</p>
-</details>
-
-
 <details><summary>1. 怎么升级 NixOS 大版本?</summary>
 <p>
   
@@ -199,3 +174,36 @@ stdenv.mkDerivation {
 
 </p>
 </details>
+
+<details><summary>4. nix store 占用磁盘空间过大时，如何回收空间? </summary>
+<p>
+
+首先先删除不再需要的 [gc root](https://nixos.org/manual/nix/stable/#ssec-gc-roots)。例如，如果只需要保留最近5次构建的 NixOS 版本：
+
+```sh
+sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +5
+```
+
+然后再执行 gc 操作
+
+```sh
+nix-collect-garbage
+```
+
+nix会删除所有未被任何gc root依赖的路径。
+
+如果想进一步节省磁盘空间，可以定期执行 `nix-store --optimise` ，这个命令通过硬链接相同内容的文件的方式减少磁盘占用。另外，可以在 `nix.conf` 中添加如下设置，这样 nix 在每次向 nix store 写入时都会执行该优化：
+```
+auto-optimise-store = true
+```
+
+NixOS 用户可以在 `configuration.nix` 中加入如下设置：
+```nix
+{ config, ... }: {
+  nix.autoOptimiseStore = true;
+}
+```
+
+</p>
+</details>
+
