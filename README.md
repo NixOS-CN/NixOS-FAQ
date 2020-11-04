@@ -197,7 +197,7 @@ nix会删除所有未被任何gc root依赖的路径。
 auto-optimise-store = true
 ```
 
-NixOS 用户可以在 `configuration.nix` 中假如如下设置：
+NixOS 用户可以在 `configuration.nix` 中加入如下设置：
 ```nix
 { config, ... }: {
   nix.autoOptimiseStore = true;
