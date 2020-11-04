@@ -2,6 +2,20 @@
 NixOS 常见问题解答  
 如有新问题请加入 [Telegram Group](https://t.me/nixos_zhcn)
 
+<details><summary> 怎么回收磁盘存储空间? </summary>
+<p>
+
+先删除 gc root （+5 表示保留最近的 5 个版本），然后再执行 gc 操作
+
+```sh
+sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +5
+nix-collect-garbage
+```
+
+</p>
+</details>
+
+
 <details><summary>1. 怎么升级 NixOS 大版本?</summary>
 <p>
   
