@@ -47,7 +47,7 @@ nixos https://nixos.org/channels/nixos-20.03
 ```sh
 sudo nix-channel --remove nixos
 # --add 默认会覆盖已存在的channel name，上述 --remove 可以省略。
-sudo nix-channel --add https://nixos.org/channels/nixos-20.03 nixos
+sudo nix-channel --add https://nixos.org/channels/nixos-20.09 nixos
 ```
 
 完成后再检查一下输出：
