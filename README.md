@@ -5,11 +5,22 @@ NixOS 常见问题解答
 <details><summary> 怎么回收磁盘存储空间? </summary>
 <p>
 
-先删除 gc root （+5 表示保留最近的 5 个版本），然后再执行 gc 操作
+先删除 gc root （+5 表示保留最近的 5 个版本）
 
 ```sh
 sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +5
+```
+
+然后再执行 gc 操作
+
+```
 nix-collect-garbage
+```
+
+如果想进一步节省磁盘空间，可以考虑用如下命令将相同的文件硬链接到同一份，但这个步骤可能会花费比较长的时间
+
+```
+nix-store --optimise
 ```
 
 </p>
