@@ -220,3 +220,7 @@ NixOS 用户可以在 `configuration.nix` 中加入如下设置：
 </p>
 </details>
 
+
+<details><summary>5. 怎么解决 nixos-rebuild 时下载失败的问题?</summary>
+<p>
+
