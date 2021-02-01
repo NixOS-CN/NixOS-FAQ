@@ -20,11 +20,15 @@ NixOS 常见问题解答, 如有新问题请加入 [Telegram Group](https://t.me
 6. [有办法在键入的命令未安装时自动安装并执行么？](answers/how-to-auto-run-command.md)
 
 
-#### Nix 内部机制
+#### Nix/NixOS 内部机制
 
 1. [什么是 NixOS module ?](answers/what-is-nixos-module.md)
 
 2. [什么是 nixpkgs Overlays？](answers/what-is-nixpkgs-overlays.md)
+
+3. [什么是 NIX_PATH 和 \<path\> 语法?](answers/what-is-nix-path-and-angle-brackets-syntax.md)
+
+4. [什么是 Nix Flakes?](answers/what-is-nix-flakes.md)
 
 
 #### Nix 语言和设计模式相关
@@ -34,6 +38,7 @@ NixOS 常见问题解答, 如有新问题请加入 [Telegram Group](https://t.me
 2. [Nix 代码里经常看到的 callPackage 是怎么回事?](answers/what-is-call-package-in-nix.md)
 
 3. [Nix 代码里经常看到的 xxx.override 是怎么回事？](answers/what-is-override-in-nix-code.md)
+
 
 #### Nix 打包问题
 
