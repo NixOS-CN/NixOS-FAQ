@@ -22,9 +22,9 @@ NixOS 常见问题解答, 如有新问题请加入 [Telegram Group](https://t.me
 
 #### Nix 内部机制
 
-1. [什么是 NixOS module ?](answers/what-is-nixos-module?)
+1. [什么是 NixOS module ?](answers/what-is-nixos-module.md)
 
-2. [什么是 nixpkgs Overlays？](answers/what-is-nixpkgs-overlays?)
+2. [什么是 nixpkgs Overlays？](answers/what-is-nixpkgs-overlays.md)
 
 
 #### Nix 语言和设计模式相关
