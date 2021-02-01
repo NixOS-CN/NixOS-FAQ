@@ -44,3 +44,6 @@ NixOS 常见问题解答, 如有新问题请加入 [Telegram Group](https://t.me
 
 1. [如何对 Nix 打包进行调试?](answers/how-to-debug-nix-packaging.md)
 
+#### Nix Server 问题汇总
+
+1. [hash mismatched](answers/nix-serve-hash-mismatch.md)
