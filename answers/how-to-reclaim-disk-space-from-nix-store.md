@@ -9,6 +9,20 @@
 sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +5
 ```
 
+以及同理删除各用户的旧 profile（下列命令以哪个用户执行就清理谁的 profile）
+
+```sh
+nix-env --delete-generations +5
+```
+
+另外，在 NixOS 上如果这次启动系统之后执行过 `nixos-rebuild switch`，那么可以考虑删除指向当前启动的版本的系统的 gc root：
+
+```sh
+rm /run/booted-system
+```
+
+NixOS 会在此保存本次开机时使用的系统版本，因为其中包括当前启动的内核的 module 等内容，如果清理掉可能导致在下次重启前 `modprobe` 失败。
+
 然后再执行 gc 操作
 
 ```sh
