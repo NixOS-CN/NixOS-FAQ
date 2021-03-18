@@ -30,6 +30,8 @@ NixOS 常见问题解答, 如有新问题请加入 [Telegram Group](https://t.me
 
 4. [什么是 Nix Flakes?](answers/what-is-nix-flakes.md)
 
+5. [为什么 nix-env 安装非默认的 outputs 后没有导出 PATH 等相关的环境变量？](anserwer/why-does-not-nix-env-export-path-for-non-default-outputs.md)
+
 
 #### Nix 语言和设计模式相关
 
