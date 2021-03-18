@@ -19,6 +19,7 @@ NixOS 常见问题解答, 如有新问题请加入 [Telegram Group](https://t.me
 
 6. [有办法在键入的命令未安装时自动安装并执行么？](answers/how-to-auto-run-command.md)
 
+7. [Kernel 与 Glibc 的文档在哪里？](answers/where-to-find-doc-for-kernel.md)
 
 #### Nix/NixOS 内部机制
 
