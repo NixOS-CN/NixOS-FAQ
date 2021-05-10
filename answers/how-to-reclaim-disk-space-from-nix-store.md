@@ -64,4 +64,7 @@ NixOS 用户可以在 `configuration.nix` 中加入如下设置：
 
 如果你的 /boot 分区满了, 你需要先清理旧的 profiles，然后执行 nixos-rebuild 以更新 /boot 分区并释放空间.
 
-更多见： https://gsc.io/70266391-48a6-49be-ab5d-acb5d7f17e76-nixos/doc/nixos-manual/html/sec-nix-gc.html
+更多见：
+
+- https://nixos.org/manual/nix/unstable/package-management/garbage-collection.html
+- https://gsc.io/70266391-48a6-49be-ab5d-acb5d7f17e76-nixos/doc/nixos-manual/html/sec-nix-gc.html
