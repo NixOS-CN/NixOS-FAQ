@@ -64,6 +64,9 @@ NixOS 用户可以在 `configuration.nix` 中加入如下设置：
 
 如果你的 /boot 分区满了, 你需要先清理旧的 profiles，然后执行 nixos-rebuild 以更新 /boot 分区并释放空间.
 
+(实测当 /boot 完全满了的时候，nixos-rebuild 会失败，需要手动删除 /boot/EFI/nixos/ 下面的一两项再重试 rebuild)
+
+
 更多见：
 
 - https://nixos.org/manual/nix/unstable/package-management/garbage-collection.html
