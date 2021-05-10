@@ -9,7 +9,7 @@ NixOS 常见问题解答, 如有新问题请加入 [Telegram Group](https://t.me
 
 1. [怎么升级 NixOS 版本?](answers/how-to-upgrade-nixos-version.md)
   
-2. [如何回收 /nix/store 占用的磁盘空间?](answers/how-to-reclaim-disk-space-from-nix-store.md)
+2. [如何回收 Nix 占用的磁盘空间?](answers/how-to-reclaim-disk-space-from-nix-store.md)
 
 3. [怎么解决 nixos-rebuild 过程中下载失败，能手动下载好文件然后继续么?](answers/how-to-mannually-download-file-while-nixos-rebuild.md)
 
