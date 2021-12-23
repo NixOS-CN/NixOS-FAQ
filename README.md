@@ -23,6 +23,9 @@ NixOS 常见问题解答, 如有新问题请加入 [Telegram Group](https://t.me
 
 8. [有哪些常用桌面软件及解决方案？](answers/softwares-and-solutions.md)
 
+9. [为什么明明文件存在却提示 no such file or directory, 如何运行可执行文件?](answers/why-no-such-file-or-directory.md)
+
+
 #### Nix/NixOS 内部机制
 
 1. [什么是 NixOS module ?](answers/what-is-nixos-module.md)
