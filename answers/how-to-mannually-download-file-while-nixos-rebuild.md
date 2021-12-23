@@ -1,6 +1,12 @@
 # 怎么解决 nixos-rebuild 过程中下载失败，能手动下载好文件然后继续么?
 
-`nix-store --add-fixed <path>` 与 `nix-store --add <path>` 可以将目录加入 nix store。我们可以手动下载文件后使用这些方式来加载文件。
+可以的, 手动下载文件后我们可以用 nix-store 命令将它们加入到 nix store.
+
+```
+nix-store --add-fixed sha256 <path>
+```
+
+之后可以重试 nixos-rebuild 命令, 此时由于 nix store 中存在该文件, 所以就不会再走网络下载了.
 
 [参考](https://discourse.nixos.org/t/how-to-manual-add-tarball-for-fetchurl-build/6180/2)
 
