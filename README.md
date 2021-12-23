@@ -21,7 +21,7 @@ NixOS 常见问题解答, 如有新问题请加入 [Telegram Group](https://t.me
 
 7. [Kernel 与 Glibc 的文档在哪里？](answers/where-to-find-doc-for-kernel.md)
 
-8. [有哪些常用桌面软件及解决方案?](answers/softwares-and-solutions.md)
+8. [有哪些常用桌面软件及解决方案？](answers/softwares-and-solutions.md)
 
 #### Nix/NixOS 内部机制
 
