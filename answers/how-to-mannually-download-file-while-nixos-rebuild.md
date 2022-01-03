@@ -1,6 +1,10 @@
-# 怎么解决 nixos-rebuild 过程中下载失败，能手动下载好文件然后继续么?
+# 怎么解决 nixos-rebuild 过程中下载失败?
 
-可以的, 手动下载文件后我们可以用 nix-store 命令将它们加入到 nix store.
+我们在执行 `sudo nixos-rebuild switch` 之类的命令时, 可能会遇到网络问题, 此时有以下几种解决方案
+
+## 手动下载文件
+
+遇到个别文件下载失败的, 可以通过浏览器等途径, 手动下载文件, 然后用 nix-store 命令将它们加入到 nix store.
 
 ```
 nix-store --add-fixed sha256 <path>
@@ -17,3 +21,54 @@ nix-store --add-fixed sha256 <path>
 参考：[nixos manual/install behind proxy](https://nixos.org/manual/nixos/stable/#sec-installing-behind-proxy)
 
 另注：在 nixpkgs 中，可以这样子使用代理是因为 fetcher 中加入了相关的 impureEnvVars
+
+## 手动指定代理
+
+上述设置的方式不够灵活, 有时候我们只是想临时走代理 (而不是总是走代理), 这时可以通过下述方式临时指定代理
+
+### 使用 proxychains
+
+先[参考文档](https://nixos.org/manual/nixos/stable/options.html#opt-programs.proxychains.proxies)配置好 proxychains, 之后可以通过以下命令测试配置是否成功:
+
+```
+proxychains4 curl -v https://cache.nixos.org/nix-cache-info
+```
+
+执行需要 sudo 的命令时需要注意, proxychains 在跨越 sudo 时似乎不会生效, 所以需要先 sudo 再 proxychains, 例如:
+
+```
+sudo proxychains4 curl -v https://cache.nixos.org/nix-cache-info   
+```
+
+以上测试脚本可以成功执行后, 就可以重新尝试  nixos-rebuild 了
+
+```
+sudo proxychains4 nixos-rebuild switch
+```
+
+### 使用 http_proxy 等环境变量
+
+例如先引入以下环境变量 (将protocol,ip和port改为自己的代理服务器配置)
+
+```
+export http_proxy='http://10.112.1.1:8118'
+export https_proxy='http://10.112.1.1:8118'
+```
+
+然后测试
+
+```
+curl -v https://cache.nixos.org/nix-cache-info
+```
+
+执行需要 sudo 的命令时需要注意, sudo 默认不会带环境变量, 除非指定 -E 参数
+
+```
+sudo -E curl -v https://cache.nixos.org/nix-cache-info
+```
+
+以上测试脚本可以成功执行后, 就可以重新尝试  nixos-rebuild 了
+
+```
+sudo -E nixos-rebuild switch
+```
