@@ -2,6 +2,22 @@
 
 我们在执行 `sudo nixos-rebuild switch` 之类的命令时, 可能会遇到网络问题, 此时有以下几种解决方案
 
+## 使用 binary cache 镜像仓库
+
+```
+sudo nixos-rebuild switch --option substituters "https://mirror.sjtu.edu.cn/nix-channels/store"
+```
+
+也可以把以下配置加到 `configuration.nix` 使得后续每次都优先走国内镜像
+
+```nix
+nix.binaryCaches = [
+  "https://mirrors.bfsu.edu.cn/nix-channels/store"
+  "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+  "https://mirror.sjtu.edu.cn/nix-channels/store"
+];
+```
+
 ## 手动下载文件
 
 遇到个别文件下载失败的, 可以通过浏览器等途径, 手动下载文件, 然后用 nix-store 命令将它们加入到 nix store.
