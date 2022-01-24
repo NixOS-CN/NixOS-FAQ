@@ -2,7 +2,9 @@
 
 我们在执行 `sudo nixos-rebuild switch` 之类的命令时, 可能会遇到网络问题, 此时有以下几种解决方案
 
-## 使用 binary cache 镜像仓库
+## 使用 Binary Cache 镜像仓库
+
+可以通过额外的 CLI 参数来指定 Binary Cache 的地址
 
 ```
 sudo nixos-rebuild switch --option substituters "https://mirror.sjtu.edu.cn/nix-channels/store"
@@ -10,12 +12,12 @@ sudo nixos-rebuild switch --option substituters "https://mirror.sjtu.edu.cn/nix-
 
 也可以把以下配置加到 `configuration.nix` 使得后续每次都优先走国内镜像
 
-```nix
-nix.binaryCaches = [
-  "https://mirrors.bfsu.edu.cn/nix-channels/store"
-  "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-  "https://mirror.sjtu.edu.cn/nix-channels/store"
-];
+```
+  nix.binaryCaches = [
+    "https://mirrors.bfsu.edu.cn/nix-channels/store"
+    "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+    "https://mirror.sjtu.edu.cn/nix-channels/store"
+  ];
 ```
 
 ## 手动下载文件
