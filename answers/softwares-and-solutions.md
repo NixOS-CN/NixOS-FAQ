@@ -15,6 +15,8 @@
 ### 即时聊天类
 
 - tdesktop # Telegram 官方 Linux 客户端
+- 微信: `nix run github:nixos-cn/flakes#wine-wechat`
+- 腾讯会议: `nix run github:linyinfeng/nur-packages#wemeet`
 
 ### 屏幕截图工具
 
