@@ -98,4 +98,4 @@ reproducable 意味着软件不会因为依赖库的版本的不确定性而导�
 ---
 
 - [Home Manager](https://github.com/nix-community/home-manager): 基于 Nix 的配置文件管理器
-- [sops-nix](https://github.com/Mic92/sops-nix): 为了解决 nix store 导致的数据隐私问题 (nix store 中的内容全局可读) 而进入的加密工具
+- [sops-nix](https://github.com/Mic92/sops-nix): 为了解决 nix store 导致的数据隐私问题 (nix store 中的内容全局可读) 而引入的加密工具
