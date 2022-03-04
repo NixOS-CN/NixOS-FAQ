@@ -91,7 +91,7 @@ reproducable 意味着软件不会因为依赖库的版本的不确定性而导�
 
 提供一种版本锁定机制 (锁定 git commit id), 以及去中心化 (对比于 nixpkgs 的中心化模式)  的仓库管理 (就是说你用 flake 就可以依赖 github 上的任何一个 repo 了而不再是只依赖 nixpkgs )
 
-具体 flakes 机制产生的动机是什么, 解决了什么问题, 可以看 [这篇文章](https://www.tweag.io/blog/2020-07-31-nixos-flakes/)
+具体 flakes 机制产生的动机是什么, 解决了什么问题, 可以看 [这篇文章](https://www.tweag.io/blog/2020-07-31-nixos-flakes/) 以及 [RFC文档](https://github.com/tweag/rfcs/blob/flakes/rfcs/0049-flakes.md#motivation)
 
 
 其它
