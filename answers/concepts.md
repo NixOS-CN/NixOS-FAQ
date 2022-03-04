@@ -25,19 +25,19 @@
 Nix 编程语言
 -----------
 
-Nix 语言是一门函数式编程语言, 它的 [核心数据结构类似JSON](), 同时它基于Lambda演算提供了定义计算过程的能力, 通过这两方面的能力, 你可以构造出足够复杂的数据结构, 它确实是一门图灵完备的编程语言.
+Nix 语言是一门函数式编程语言, 它的核心数据结构类似JSON, 同时它基于Lambda演算提供了定义计算过程的能力, 通过这两方面的能力, 你可以构造出足够复杂的数据结构, 它确实是一门图灵完备的编程语言.
 
 在 Nix/NixOS 中, 我们主要用 Nix语言 提供声明式描述一个构建过程 (drv) 的能力, 以及声明式描述构建选项 ( pkgxxx.override { ... }  )  的能力.
 
 这个语言有以下特点:
 
-- 支持 类似JSON 的数据结构
+- 支持 [类似JSON 的数据结构](https://nixos.org/manual/nix/unstable/expressions/language-constructs.html)
 - 基于 Lambda 演算 提供定义计算过程的能力, 支持 first class function
 - 动态类型
 - 采用惰性求值策略
 - 具体语法有些模仿命令式语言的赋值语句 (如可以写 `{ a.b.c = 1; }`, 它等价于 `{ a = { b = { c = 1; }; }; }`, 并且多个这样的 "赋值语句" 还能合并 ) , 但内核实际上是声明式的
 
-大概就是这样子, 熟悉 Haskell 或 Lisp 系列的玩家只需要去官网看5分钟关于具体语法的 [文档](https://nixos.org/manual/nix/unstable/expressions/language-constructs.html) 即可, 这里不赘述。
+大概就是这样子, 熟悉 Haskell 或 Lisp 系列的玩家只需要话几分钟去看看关于具体语法的 [官方文档](https://nixos.wiki/wiki/Nix_Expression_Language) 以及一些 [文章](https://nixery.dev/nix-1p.html) 即可, 这里不赘述。
 
 
 作为包管理器的 Nix
