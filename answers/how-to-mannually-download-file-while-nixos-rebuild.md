@@ -10,15 +10,19 @@
 sudo nixos-rebuild switch --option substituters "https://mirror.sjtu.edu.cn/nix-channels/store"
 ```
 
-也可以把以下配置加到 `configuration.nix` 使得后续每次都优先走国内镜像
+也可以把以下配置加到 `configuration.nix` 使得**后续**每次都优先走国内镜像, **若需要本次立即生效还是看上面**
 
 ```
-  nix.binaryCaches = [
-    "https://mirrors.bfsu.edu.cn/nix-channels/store"
-    "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+  #注意, 旧版本的 nixos 里, 该选项叫 nix.binaryCaches
+  nix.settings.substituters = lib.mkBefore [
     "https://mirror.sjtu.edu.cn/nix-channels/store"
+    #"https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+    #"https://mirrors.bfsu.edu.cn/nix-channels/store"
   ];
 ```
+
+(选其中一个即可, 用多个镜像并不一定就能让速度变快...)
+
 
 ## 手动下载文件
 
