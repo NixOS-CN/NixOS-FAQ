@@ -6,6 +6,7 @@ NixOS 常见问题解答, 如有新问题请加入 [Telegram Group](https://t.me
 
 #### Nix/NixOS/HomeManager 使用问题
 
+0. [安装 nix 的时候遇到网络问题如何解决](answers/how-to-solve-network-issue-on-installing-nix.md)
 
 1. [怎么升级 NixOS 版本?](answers/how-to-upgrade-nixos-version.md)
   
