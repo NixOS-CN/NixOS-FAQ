@@ -55,7 +55,8 @@ auto-optimise-store = true
 NixOS 用户可以在 `configuration.nix` 中加入如下设置：
 ```nix
 { config, ... }: {
-  nix.autoOptimiseStore = true;
+  nix.optimise.automatic = true;
+  nix.optimise.dates = [ "03:45" ];
 }
 ```
 
