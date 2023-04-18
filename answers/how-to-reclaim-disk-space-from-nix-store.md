@@ -9,6 +9,7 @@
 
 
 ```sh
+sudo nix-env --profile /nix/var/nix/profiles/system --list-generations
 sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +5
 ```
 
