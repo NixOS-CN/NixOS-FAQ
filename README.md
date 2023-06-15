@@ -26,8 +26,9 @@ NixOS 常见问题解答, 如有新问题请加入 [Telegram Group](https://t.me
 
 9. [为什么明明文件存在却提示 no such file or directory, 如何运行可执行文件?](answers/why-no-such-file-or-directory.md)
 
-10. [nixos-rebuild 时报错 truncated gzip input](answers/how-to-solve-truncated_gzip_input-issue.md)
+10. [执行 nixos-rebuild 时报错 truncated gzip input 怎么办？](answers/how-to-solve-truncated_gzip_input-issue.md)
 
+11. [安装 (nixos-install) 成功，但启动系统失败，怎么排查？](answers/nixos-install-success-but-boot-failed.md)
 
 #### Nix/NixOS 内部机制
 
