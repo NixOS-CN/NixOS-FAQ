@@ -37,7 +37,7 @@ Nix 语言是一门函数式编程语言, 它的核心数据结构类似JSON, �
 - 采用惰性求值策略
 - 具体语法有些模仿命令式语言的赋值语句 (如可以写 `{ a.b.c = 1; }`, 它等价于 `{ a = { b = { c = 1; }; }; }`, 并且多个这样的 "赋值语句" 还能合并 ) , 但内核实际上是声明式的
 
-大概就是这样子, 熟悉 Haskell 或 Lisp 系列的玩家只需要话几分钟去看看关于具体语法的 [官方文档](https://nixos.wiki/wiki/Nix_Expression_Language) 以及一些 [文章](https://nixery.dev/nix-1p.html) 即可, 这里不赘述。
+大概就是这样子, 熟悉 Haskell 或 Lisp 系列的玩家只需要话几分钟去看看关于具体语法的 [官方文档](https://wiki.nixos.org/wiki/Nix_Expression_Language) 以及一些 [文章](https://nixery.dev/nix-1p.html) 即可, 这里不赘述。
 
 
 作为包管理器的 Nix

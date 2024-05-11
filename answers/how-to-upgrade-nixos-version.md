@@ -48,7 +48,7 @@ nixos https://nixos.org/channels/nixos-20.09
 ```sh
 sudo nix-channel --update
 ```
-这一步类似的作用是更新本机channel中的nix表达式，类似 `sudo apt-get update` , 参考 [Wiki](https://nixos.wiki/wiki/Cheatsheet)。
+这一步类似的作用是更新本机channel中的nix表达式，类似 `sudo apt-get update` , 参考 [Wiki](https://wiki.nixos.org/wiki/Cheatsheet)。
 
 更多说明：[channel 所有者](#channel-所有者)
 
