@@ -1,1 +1,1 @@
-见官方wiki： https://nixos.wiki/wiki/Module
+见官方wiki： https://wiki.nixos.org/wiki/Module

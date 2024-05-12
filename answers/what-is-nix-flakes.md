@@ -6,4 +6,4 @@
 
 其中第一篇和第三篇解释了 flakes 的设计动机，或者说 nix 项目目前遇到的一些问题。
 
-另外，[官方wiki](https://nixos.wiki/wiki/Flakes) 也可以作为补充阅读
+另外，[官方wiki](https://wiki.nixos.org/wiki/Flakes) 也可以作为补充阅读
